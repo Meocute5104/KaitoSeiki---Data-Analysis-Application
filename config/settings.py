@@ -11,7 +11,7 @@ def render_title():
     <div style="text-align:center;margin-bottom:20px">
         <h1 style="color:#1f4e78;border-bottom:3px solid #1f4e78;
         display:inline-block;padding-bottom:10px">
-            🏭関東精機株式会社：製造分析システム
+            🏭関東精機株式会社　製造分析システム
         </h1>
     </div>
     """, unsafe_allow_html=True)

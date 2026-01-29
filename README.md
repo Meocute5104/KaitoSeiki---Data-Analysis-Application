@@ -1,92 +1,58 @@
-# 🏭 IoTデータによるスマートファクトリー分析ダッシュボード  
-**Smart Factory Data Analysis Dashboard using IoT Data**
+# 🏭 Smart Factory: IoT Production Analysis Dashboard
+### (IoTデータによるスマートファクトリー化：製造分析ダッシュボード)
 
 ---
 
-## 📌 インターンシップ内容
+## 📌 Project Overview (プロジェクト概要)
+This project aims to visualize real-time IoT data from the manufacturing floor (collected via **adFactory**) to achieve "Mieruka" (Visual Management) and efficiency. It transforms raw Excel data into actionable insights using Python and Streamlit.
 
-### 1️⃣ プロジェクト名  
-**IoTデータでスマートファクトリー化**
-
----
-
-### 2️⃣ 概要  
-本インターンシップでは、製造現場の設備から取得される  
-**リアルタイムIoTデータ** を活用し、  
-工場の **「見える化」** と **「効率化」** を実現することを目的としています。
-
-単なるデータ入力・集計ではなく、  
-**ITの力で製造業の課題を解決する実践型プロジェクト** です。
-
-本プロジェクトでは、  
-- 生産データの可視化  
-- 作業時間のばらつき分析  
-- ボトルネック工程の特定  
-
-を行い、現場改善につながる分析を提供します。
+本プロジェクトは、製造現場の設備から得られるリアルタイムデータ（**adFactory**経由）を活用し、工場の「見える化」と「効率化」を実現することを目的としています。PythonとStreamlitを用いることで、生のExcelデータを価値ある分析結果へと変換します。
 
 ---
 
-### 3️⃣ プロジェクトの目的  
+## 📂 Directory Structure (ディレクトリ構成)
+The project follows a **Modular Architecture** for high maintainability.
+(本プロジェクトは、メンテナンス性を高めるために**モジュール化構造**を採用しています。)
 
-当社工場では、人が作業を行う時間（工数）を  
-**adFactory（生産現場のDX化ツール・データ収集ソフト）** により取得しています。
+```text
+📁 production_dashboard/
+├── 📄 app.py              # Main entry point (メインエントリポイント)
+├── 📁 config/             # Global settings & styles (設定とスタイル)
+├── 📁 data/               # Data loading & Caching (データ読み込みとキャッシュ)
+├── 📁 services/           # Business logic & Metrics (計算ロジック)
+├── 📁 charts/             # Plotly visualization modules (グラフ作成モジュール)
+├── 📁 ui/                 # UI components & CSS (UIコンポーネント)
+└── 📄 requirements.txt    # Library dependencies (依存ライブラリ)
+🚀 Key Technical Features (主な技術的特徴)
+1. High Performance with Caching (キャッシュによる高速化)
+Utilizes st.cache_data to store processed data in memory, preventing redundant Excel reading and ensuring an instantaneous user experience. (st.cache_dataを活用し、処理済みデータをメモリに保存することで、Excelの再読み込みを防ぎ、即座なレスポンスを実現しています。)
 
-しかし、取得したデータをそのままでは  
-- 状況の把握が難しい  
-- 改善点が分かりにくい  
+2. Dynamic Process Detection (動的な工程検知)
+Automatically identifies manufacturing processes from Excel columns. No manual code updates are required when processes change. (Excelの列から製造工程を自動的に認識します。工程の追加や名称変更があっても、コードを修正する必要はありません。)
 
-という課題があります。
+3. Advanced Statistical Analysis (高度な統計分析)
+Radar Chart (%): Normalizes all processes to a 100% baseline for easy deviation detection. (全ての工程を100%基準で正規化し、標準からの乖離を容易に把握できます。)
 
-そこで本プロジェクトでは、  
-**ITスキルを活かしてデータを整理・分析し、  
-誰でも一目で理解できる形に「見える化」すること** を目的としています。
+Box Plot (Variability): Visualizes "Baratsuki" (variability) to identify unstable operations. (「ばらつき」を可視化し、不安定な作業工程を特定します。)
 
----
-
-### 4️⃣ 成果発表  
-
-分析結果をもとに、  
-**関東精機の社員の皆様へプレゼンテーションを行い、  
-生産性向上・工程改善の提案** を行います。
-
----
-
-### 5️⃣ 得られる経験  
-
-本インターンシップを通じて、以下の経験を得ることができます。
-
-- ✅ 実際の工場データを用いた **データ分析スキル**
-- ✅ 日本の製造業における **DX（デジタルトランスフォーメーション）の現状理解**
-- ✅ 日本語での **業務コミュニケーション能力の向上**
-- ✅ 日本企業の文化・社員との交流を通じた **異文化理解**
-
----
-
-## 🛠 使用技術・ツール  
-
-- **Python**
-- **Streamlit**（ダッシュボード構築）
-- **Pandas / NumPy**（データ処理）
-- **Plotly**（可視化）
-- **Excel（Data / Standard シート）**
-- **Git / GitHub**
-
----
-
-## 📊 主な機能  
-
-- 📥 Excelファイルのアップロード  
-- 📈 SPC別・製品別の工程分析  
-- 🔥 効率ヒートマップ表示  
-- 📦 箱ひげ図によるばらつき分析  
-- 🎯 ボトルネック工程・注意製品の自動検出  
-- 📤 CSV形式でのデータ出力  
-
----
-
-## 🚀 起動方法  
-
-```bash
+🛠 Setup & Installation (セットアップ方法)
+Environment (環境構築)
+Bash
 pip install -r requirements.txt
+Run Application (実行)
+Bash
 streamlit run app.py
+💡 Future Roadmap (今後の展望)
+Direct DB Connection: Transition from Excel files to direct SQL integration with adFactory. (ExcelファイルからadFactoryのSQLデータベースへの直接連携。)
+
+Automated Alerts: Real-time notifications for efficiency drops via Email or Slack. (効率低下時のメールやSlackによるリアルタイムアラート通知。)
+
+👤 Author (作成者)
+Name: [Your Name / 氏名]
+
+Internship: Kanto Seiki Co., Ltd. (関東精機株式会社)
+
+Period: Jan 2026 - Feb 2026
+
+📝 Note for Successors (後継者へのメモ)
+The code is strictly separated into logic and UI. When adding a new chart, please create a new file in the charts/ directory and import it into app.py. (コードはロジックとUIを厳格に分離しています。新しいグラフを追加する場合は、charts/ディレクトリに新しいファイルを作成し、app.pyでインポートしてください。)

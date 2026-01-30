@@ -55,4 +55,4 @@ Internship: Kanto Seiki Co., Ltd. (関東精機株式会社)
 Period: Jan 2026 - Feb 2026
 
 📝 Note for Successors (後継者へのメモ)
-The code is strictly separated into logic and UI. When adding a new chart, please create a new file in the charts/ directory and import it into app.py. (コードはロジックとUIを厳格に分離しています。新しいグラフを追加する場合は、charts/ディレクトリに新しいファイルを作成し、app.pyでインポートしてください。)
+The code is strictly separated into logic and UI. When adding a new chart, please create a new file in the charts/ directory and import it into app.py. (コードはロジックとUIを厳格に分離しています。新しいグssラフを追加する場合は、charts/ディレクトリに新しいファイルを作成し、app.pyでインポートしてください。)

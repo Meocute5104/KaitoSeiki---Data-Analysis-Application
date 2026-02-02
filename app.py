@@ -70,8 +70,9 @@ if uploaded is not None:
                     eff_df = df_spc.copy() 
                     # DataFrame sao chép để tính hiệu suất từng process
 
-                    for p in processes:
-                        eff_df[p] = (std[p] / eff_df[p] * 100).round(1) 
+                    eff_df[processes] = (
+                        pd.Series(std)[processes] / eff_df[processes] * 100
+                    ).round(1)
                         # eff_df chua hieu suat tung process, 
                         # std[p] la thoi gian tieu chuan cua process p, 
                         # eff_df[p] la thoi gian thuc te cua process p
@@ -151,8 +152,9 @@ if uploaded is not None:
                 
                 #Heatmap
                 eff_df = df_spc.copy()  # DataFrame sao chép để tính hiệu suất từng process
-                for p in processes:
-                    eff_df[p] = (std[p] / eff_df[p] * 100).round(1) # Tính hiệu suất từng process
+                eff_df[processes] = (
+                    pd.Series(std)[processes] / eff_df[processes] * 100
+                ).round(1)
 
                 with col2:
                     st.plotly_chart(

@@ -9,8 +9,11 @@ from charts.boxplot import process_boxplot
 from charts.radar import radar
 from charts.compare import compare_bar
 from ui.explainers import boxplot_help, stack_bar_help, heatmap_help
+from ui.headers import render_header
+
 
 setup_page()
+render_header()
 render_title()
 
 uploaded = upload()

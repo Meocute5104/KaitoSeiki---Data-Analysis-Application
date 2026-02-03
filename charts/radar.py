@@ -1,6 +1,6 @@
 import plotly.graph_objects as go
 
-def radar(processes, actual_pct):
+def radar(sp, processes, actual_pct):
     # processes is a list of process names, actual_pct is a list of actual percentages, returns a radar chart figure
     fig = go.Figure()
 
@@ -20,6 +20,6 @@ def radar(processes, actual_pct):
 
     fig.update_layout(
         polar=dict(radialaxis=dict(range=[0, max(actual_pct+[150])])),
-        title="工程比率 (%)"
+        title=f"{sp}の工程比率 (%)"
     )
     return fig

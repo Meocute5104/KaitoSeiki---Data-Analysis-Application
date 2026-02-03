@@ -110,10 +110,10 @@ if uploaded is not None:
 
                 c1, c2 = st.columns(2)
                 with c1:
-                    st.plotly_chart(radar(processes, actual_pct), use_container_width=True)
+                    st.plotly_chart(radar(sp, processes, actual_pct), use_container_width=True)
                 with c2:
                     st.plotly_chart(
-                        compare_bar(processes, actual, [std[p] for p in processes]),
+                        compare_bar(sp, processes, actual, [std[p] for p in processes]),
                         use_container_width=True
                     )
 
